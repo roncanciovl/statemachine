@@ -1,0 +1,2 @@
+class alarmActivity():
+    pass
