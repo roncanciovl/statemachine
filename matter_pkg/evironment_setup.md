@@ -1,10 +1,41 @@
 # Environments
 
-Desde el terminal de VS code envie el siguiente comando. Despues de enviado le debe aparecer una ventana preguntando si quiere vincular este environment al workspace actual, selecciones Si.
+La organización de los directorios es la siguiente
+
+```
+workspace
+| ____ src_directory
+|       |___ .git
+|       |___ python_pkg
+|       |    |____ __init__.py
+|       |    |____ modulos.py     
+|       |____requirements.txt
+|______ .env
+
+```
+
+
+No es rocmendable crear el environment en la carpeta que tiene el .git, sino en el directorio superior, es decir el del workspace.
+
+Si está en el directorio del .git, entonces desde el terminal de VS code envie el siguiente comando.
+
+```shell script
+cd ..
+```
+
+Para ubicarse en el directorio superior al repositorio, es decir el repositorio de su workspace
+
+Luego envie el comando para crear el environment
+
 
 ```shell script
 python -m venv .env
 ```
+Si no funciona el anterior, pruebe con el siguiente
+```shell script
+py -m venv .env
+```
+ Despues de enviado le debe aparecer una ventana preguntando si quiere vincular este environment al workspace actual, selecciones Si.
 
 Al crear el environment se crea una carpeta .robotenv dentro del workspace con algunos Scripts, entre ellos se crea un link al ejecutable de python del sistema operativo: .robotenv\Scripts\python.exe. En esa carpeta tambien se guardaran las bibliotecas (libraries) necesarias para el proyecto.
 
@@ -64,6 +95,13 @@ Siguiente comando:
 pip install -r requirements.txt
 ```
 
+Puede ser necesario ajustar el PATH del archivo de requerimientos
+
+```shell script
+pip install -r ./statemachine/requirements.txt
+```
+
+Finalmente es necesario escoger el interpretador de python del environment, para esto entre al command palette (ctrl + shift + p), y digite Python: Select Interpreter, y luego selecciones el interpretador de Python de su environment (.evn7Scripts/python)
 
 ## Anotaciones adicionales. No son necesarias en la instalación
 
